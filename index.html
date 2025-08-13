@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hillary Bolos — Doces que abraçam</title>
+  <meta name="description" content="Catálogo de bolos artesanais com fotos, valores e descrições. Peça pelo WhatsApp.">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <style>
+    :root{
+      --bg:#fffaf8;
+      --card:#ffffff;
+      --text:#2a2a2a;
+      --muted:#6b6b6b;
+      --brand:#e34f74;
+      --brand-2:#ff9f43;
+      --ring:rgba(227,79,116,.25);
+      --shadow: 0 10px 25px rgba(0,0,0,.08);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:saturate(160%) blur(10px);
+      background:linear-gradient(180deg,rgba(255,250,248,.9),rgba(255,250,248,.6));
+      border-bottom:1px solid #f0e6e2;
+    }
+    .wrap{max-width:1200px;margin:auto;padding:20px}
+    .bar{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.1rem}
+    .logo-badge{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 180deg at 50% 50%, var(--brand), var(--brand-2));color:#fff;box-shadow:var(--shadow)}
+    nav{display:flex;gap:18px;font-weight:600}
+    nav a{opacity:.9}
+    nav a:hover{opacity:1}
+    .hero{padding:64px 20px 36px;background:
+      radial-gradient(80% 60% at 50% -10%, rgba(227,79,116,.25), transparent 60%),
+      radial-gradient(60% 50% at 90% 10%, rgba(255,159,67,.18), transparent 60%);
+    }
+    .hero-inner{max-width:1200px;margin:auto;display:grid;gap:24px;grid-template-columns:1.1fr .9fr;align-items:center}
+    .hero h1{font-size:clamp(28px,5vw,48px);margin:0 0 8px 0;line-height:1.1}
+    .hero p{color:var(--muted);margin:0 0 10px 0}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 18px;border-radius:12px;border:2px solid transparent;font-weight:700;cursor:pointer;
+      transition:.2s transform ease,.2s box-shadow ease,.2s background ease;
+    }
+    .btn-primary{background:var(--brand);color:white;box-shadow:0 8px 20px var(--ring)}
+    .btn-outline{border-color:var(--brand);color:var(--brand);background:transparent}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-img{
+      width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+      background:#fff url('https://images.unsplash.com/photo-1547414360-5f6b1de0f2c8?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      min-height:260px;
+    }
+    .section{padding:36px 20px}
+    .section h2{font-size:clamp(22px,4vw,34px);margin:0 0 6px 0}
+    .section p.lead{color:var(--muted);margin:0 0 18px 0}
+    .grid{
+      display:grid;gap:18px;
+      grid-template-columns:repeat(4,1fr);
+    }
+    @media (max-width:1000px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}}
+    .card{
+      background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+      display:flex;flex-direction:column
+    }
+    .card .img{width:100%;aspect-ratio:4/3;background:#eee center/cover no-repeat}
+    .card .body{padding:14px 14px 16px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+    .tag{font-size:.8rem;background:#fff3f6;color:var(--brand);padding:4px 10px;border-radius:999px;display:inline-block;font-weight:700}
+    .title{font-weight:800;font-size:1.1rem}
+    .desc{color:var(--muted);font-size:.98rem}
+    .price{margin-top:auto;font-weight:900;font-size:1.15rem}
+    .actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+    .pill{padding:10px 12px;border-radius:12px;border:1.5px solid #f0e6e2;font-weight:700;cursor:pointer}
+    .pill.is-on{border-color:var(--brand);color:var(--brand);background:#fff3f6}
+    .foot{
+      background:#fff; border-top:1px solid #f0e6e2
+    }
+    .foot .cols{max-width:1200px;margin:auto;display:grid;gap:18px;padding:24px 20px;grid-template-columns:2fr 1fr 1fr}
+    .foot small{color:var(--muted)}
+    @media (max-width:820px){.foot .cols{grid-template-columns:1fr}}
+    .note{font-size:.92rem;color:var(--muted);margin-top:8px}
+    .whats{display:inline-flex;align-items:center;gap:8px}
+    .whats svg{width:18px;height:18px}
+    .badge-price{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;color:#fff;background:linear-gradient(90deg,var(--brand),var(--brand-2));padding:6px 10px;border-radius:999px}
+    .search{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+    .search input{
+      flex:1;min-width:240px;padding:12px 14px;border-radius:12px;border:1.5px solid #f0e6e2;outline:none
+    }
+    .search input:focus{border-color:var(--brand);box-shadow:0 0 0 6px var(--ring)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <div class="logo">
+        <span class="logo-badge">🍰</span>
+        <span>Hillary <span style="color:var(--brand)">Bolos</span></span>
+      </div>
+      <nav>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#encomendas">Encomendas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Doces que abraçam — bolos artesanais feitos com carinho</h1>
+        <p>Escolha seu bolo favorito, veja fotos reais, valores e descrições. Entregamos na região — peça pelo WhatsApp.</p>
+        <div class="cta">
+          <a class="btn btn-primary whats" href="https://wa.me/5511999999999?text=Oi%20Hillary%2C%20quero%20fazer%20um%20pedido%20de%20bolo%20%F0%9F%8D%B0" target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.33c-.26-.13-1.51-.75-1.75-.83-.24-.09-.41-.13-.58.13-.17.26-.66.83-.81 1.01-.15.17-.3.2-.56.07-.26-.13-1.08-.4-2.05-1.27-.76-.68-1.27-1.51-1.42-1.77-.15-.26-.02-.4.11-.52.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.39-.79-1.9-.21-.5-.42-.43-.58-.43-.15 0-.32-.02-.49-.02s-.45.06-.68.32c-.24.26-.9.88-.9 2.14 0 1.26.92 2.47 1.05 2.64.13.17 1.81 2.77 4.39 3.89.61.26 1.09.41 1.46.52.61.19 1.17.16 1.61.1.49-.07 1.51-.62 1.72-1.22.21-.6.21-1.11.15-1.22-.06-.11-.24-.17-.49-.3z"/><path d="M16 3C9.37 3 4 8.37 4 15c0 2.12.58 4.1 1.6 5.8L4 29l8.4-1.53C14.1 28.42 15.05 28.5 16 28.5c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22.5c-.86 0-1.7-.11-2.49-.33l-.18-.05-4.97.9.95-4.86-.06-.19A9.47 9.47 0 0 1 6.5 15c0-5.24 4.26-9.5 9.5-9.5s9.5 4.26 9.5 9.5-4.26 9.5-9.5 9.5z"/></svg>
+            Pedir no WhatsApp
+          </a>
+          <a class="btn btn-outline" href="#cardapio">Ver cardápio</a>
+          <span class="badge-price">Fatias a partir de R$ 9,90</span>
+        </div>
+        <p class="note">*Fotos ilustrativas de referência. Preços podem variar por tamanho e decoração.</p>
+      </div>
+      <div class="hero-img" role="img" aria-label="Bolo confeitado em close"></div>
+    </div>
+  </section>
+
+  <section id="cardapio" class="section">
+    <div class="wrap">
+      <h2>Cardápio</h2>
+      <p class="lead">Escolha por sabor ou procure algo específico.</p>
+
+      <div class="search">
+        <input id="q" type="search" placeholder="Buscar por sabor, recheio, cobertura..." aria-label="Buscar bolos">
+        <div class="pill is-on" data-filter="todos">Todos</div>
+        <div class="pill" data-filter="tradicional">Tradicionais</div>
+        <div class="pill" data-filter="recheado">Recheados</div>
+        <div class="pill" data-filter="especial">Especiais</div>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- Cards of cakes -->
+      </div>
+    </div>
+  </section>
+
+  <section id="encomendas" class="section" style="background:#fff;">
+    <div class="wrap">
+      <h2>Como encomendar</h2>
+      <p class="lead">Escolha o bolo, clique em “Pedir no WhatsApp” e informe a data, tamanho e se precisa de mensagem personalizada.</p>
+      <ul>
+        <li>Tamanhos: 15 cm (6–8 fatias), 20 cm (12–15), 25 cm (20–25), forma retangular sob medida.</li>
+        <li>Entrega na região (consulte taxa) ou retirada agendada.</li>
+        <li>Pedidos com 48h de antecedência para bolos especiais.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="contato" class="foot">
+    <div class="cols">
+      <div>
+        <div class="logo" style="margin-bottom:8px">
+          <span class="logo-badge">🍰</span>
+          <span>Hillary <span style="color:var(--brand)">Bolos</span></span>
+        </div>
+        <small>Feito com carinho e ingredientes selecionados.</small>
+      </div>
+      <div>
+        <strong>Contato</strong><br>
+        <a class="whats" href="https://wa.me/5511999999999?text=Oi%20Hillary%2C%20quero%20um%20bolo%20%F0%9F%8D%B0" target="_blank" rel="noopener">WhatsApp: (11) 99999-9999</a><br>
+        <small class="note">Atendimento: seg–sáb, 9h–19h</small>
+      </div>
+      <div>
+        <strong>Redes</strong><br>
+        <a href="#" aria-label="Instagram">Instagram</a><br>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Catalog data
+    const bolos = [
+      {
+        id:"morango-ninho",
+        nome:"Bolo de Morango com Ninho",
+        tag:"recheado",
+        preco:"R$ 89,90 (20 cm)",
+        desc:"Pão de ló branco, recheio cremoso de leite ninho e camadas generosas de morangos frescos.",
+        img:"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"cenoura-chocolate",
+        nome:"Cenoura com Ganache",
+        tag:"tradicional",
+        preco:"R$ 59,90 (20 cm)",
+        desc:"Massa úmida de cenoura com cobertura de ganache de chocolate meio amargo.",
+        img:"https://images.unsplash.com/photo-1541976076758-347942db1970?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"chocolate-belga",
+        nome:"Chocolate Belga",
+        tag:"especial",
+        preco:"R$ 119,90 (20 cm)",
+        desc:"Três camadas de massa de cacau 50% com mousse de chocolate belga e raspas.",
+        img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476e?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"red-velvet",
+        nome:"Red Velvet",
+        tag:"especial",
+        preco:"R$ 109,90 (20 cm)",
+        desc:"Clássico aveludado com cobertura de cream cheese levemente cítrico.",
+        img:"https://images.unsplash.com/photo-1599785209796-9e48b87c3a83?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"abacaxi-coco",
+        nome:"Abacaxi com Coco",
+        tag:"recheado",
+        preco:"R$ 94,90 (20 cm)",
+        desc:"Massa branca com recheio de abacaxi em calda caseira e creme de coco.",
+        img:"https://images.unsplash.com/photo-1559628233-572b3f7753ae?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"prestigio",
+        nome:"Prestígio",
+        tag:"recheado",
+        preco:"R$ 84,90 (20 cm)",
+        desc:"Chocolate fofinho com creme de coco e cobertura de brigadeiro cremoso.",
+        img:"https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"limão-siciliano",
+        nome:"Limão Siciliano",
+        tag:"tradicional",
+        preco:"R$ 69,90 (20 cm)",
+        desc:"Massa amanteigada com calda de limão siciliano e cobertura de glacê cítrico.",
+        img:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1600&auto=format&fit=crop"
+      },
+      {
+        id:"doce-de-leite-nozes",
+        nome:"Doce de Leite & Nozes",
+        tag:"especial",
+        preco:"R$ 114,90 (20 cm)",
+        desc:"Camadas de pão de ló, doce de leite argentino e crocante de nozes.",
+        img:"https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=1600&auto=format&fit=crop"
+      }
+    ];
+
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const pills = [...document.querySelectorAll('.pill')];
+    let filtro = 'todos';
+
+    function render(){
+      const termo = (q.value||'').toLowerCase();
+      grid.innerHTML = '';
+      bolos
+        .filter(b => filtro==='todos' ? true : b.tag===filtro)
+        .filter(b => b.nome.toLowerCase().includes(termo) || b.desc.toLowerCase().includes(termo))
+        .forEach(b => {
+          const el = document.createElement('article');
+          el.className = 'card';
+          el.innerHTML = `
+            <div class="img" style="background-image:url('${b.img}')"></div>
+            <div class="body">
+              <span class="tag">${b.tag[0].toUpperCase()+b.tag.slice(1)}</span>
+              <div class="title">${b.nome}</div>
+              <div class="desc">${b.desc}</div>
+              <div class="price">${b.preco}</div>
+              <div class="actions">
+                <a class="btn btn-primary whats" href="https://wa.me/5511999999999?text=Oi%20Hillary%2C%20quero%20o%20bolo%20${encodeURIComponent(b.nome)}" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+                <a class="btn btn-outline" href="#encomendas">Detalhes</a>
+              </div>
+            </div>
+          `;
+          grid.appendChild(el);
+        });
+    }
+
+    q.addEventListener('input', render);
+    pills.forEach(p => p.addEventListener('click', () => {
+      pills.forEach(x => x.classList.remove('is-on'));
+      p.classList.add('is-on');
+      filtro = p.dataset.filter;
+      render();
+    }));
+
+    render();
+  </script>
+</body>
+</html>
